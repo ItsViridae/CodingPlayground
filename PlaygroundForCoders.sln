@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SumOfDigitsForGivenNumber", "SumOfDigitsForGivenNumber\SumOfDigitsForGivenNumber.csproj", "{4212C8BE-A20A-4AB9-AA4C-BE8FAA06A85E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlackJack", "BlackJack\BlackJack.csproj", "{D7213A34-42BB-4A8E-BDC3-BE340E8CD776}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PairOfSocks", "PairOfSocks\PairOfSocks.csproj", "{B7FBF1CE-C648-4506-BA26-381128A5BA2F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caesar Cipher", "Caesar Cipher\Caesar Cipher.csproj", "{351A0CAB-6B86-4E25-ACAB-10526979E5EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caesar Cipher.Test", "Caesar Cipher.Test\Caesar Cipher.Test.csproj", "{3EB07197-FB02-423D-9917-65C3D92288B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4212C8BE-A20A-4AB9-AA4C-BE8FAA06A85E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4212C8BE-A20A-4AB9-AA4C-BE8FAA06A85E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4212C8BE-A20A-4AB9-AA4C-BE8FAA06A85E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4212C8BE-A20A-4AB9-AA4C-BE8FAA06A85E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7213A34-42BB-4A8E-BDC3-BE340E8CD776}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7213A34-42BB-4A8E-BDC3-BE340E8CD776}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7213A34-42BB-4A8E-BDC3-BE340E8CD776}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7213A34-42BB-4A8E-BDC3-BE340E8CD776}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7FBF1CE-C648-4506-BA26-381128A5BA2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7FBF1CE-C648-4506-BA26-381128A5BA2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7FBF1CE-C648-4506-BA26-381128A5BA2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7FBF1CE-C648-4506-BA26-381128A5BA2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{351A0CAB-6B86-4E25-ACAB-10526979E5EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{351A0CAB-6B86-4E25-ACAB-10526979E5EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{351A0CAB-6B86-4E25-ACAB-10526979E5EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{351A0CAB-6B86-4E25-ACAB-10526979E5EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EB07197-FB02-423D-9917-65C3D92288B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EB07197-FB02-423D-9917-65C3D92288B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EB07197-FB02-423D-9917-65C3D92288B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EB07197-FB02-423D-9917-65C3D92288B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {73F49F43-9E81-4781-A667-BD5387F2142E}
+	EndGlobalSection
+EndGlobal
