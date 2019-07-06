@@ -21,8 +21,7 @@ namespace Tests
             [TestCase("uif%mjtu%tipvme%mppq%bhbjo", 27, "the list should loop again")]
             public void DecryptMessage(string encryptedMessage, int key, string decryptedMessage)
             {
-                var cryptograph = new Cryptograph();
-                var result = cryptograph.DecryptMessage(encryptedMessage, key);
+                var result = Cryptograph.Decrypt(encryptedMessage, key);
                 Assert.AreEqual(decryptedMessage, result);
             }
 
@@ -34,8 +33,7 @@ namespace Tests
             [TestCase("uif%mjtu%tipvme%mppq%bhbjo", 27, "the list should loop again")]
             public void EncryptMessage(string encryptedMessage, int key, string decryptedMessage)
             {
-                var cryptograph = new Cryptograph();
-                var result = cryptograph.Encrypt(encryptedMessage, key);
+                var result = Cryptograph.Encrypt(decryptedMessage, key);
                 Assert.AreEqual(encryptedMessage, result);
             }
         }

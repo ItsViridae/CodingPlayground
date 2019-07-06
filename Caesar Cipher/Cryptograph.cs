@@ -18,29 +18,43 @@ namespace Caesar_Cipher
     {
         public static void Main(string[] args)
         {
-            var optionSelected = MenuPrompt();
-            switch (optionSelected)
+            var isExited = false;
+            while (!isExited)
             {
-                case 1:
-                    //EncryptPrompt
-                    Console.Write("Message to Encrypt:");
-                    var message = Console.ReadLine().ToLower();
-                    Console.Write("Please enter a Key:");
-                    var key = int.Parse(Console.ReadLine());
-                    //end Prompt
-                    var encryptedMessage = Encrypt(message, key);
-                    break;
-                case 2:
-                    DecryptMessage.Decrypt();
-                    break;
-                default:
-                    Console.WriteLine("Thanks for exiting my Program!\n Peace.");
-                    break;
-            }
+                var optionSelected = MenuPrompt();
 
-            
-            Console.WriteLine();
-            Console.ReadLine();
+                switch (optionSelected)
+                {
+                    case 0:
+                        Console.WriteLine("Thanks for exiting my Program!\n Peace.");
+                        isExited = true;
+                        break;
+                    case 1:
+                        //EncryptPrompt
+                        Console.Write("Message to Encrypt:");
+                        var message = Console.ReadLine().ToLower();
+                        Console.Write("Please enter a Key:");
+                        var key = int.Parse(Console.ReadLine());
+                        //end Prompt
+                        var encryptedMessage = Encrypt(message, key);
+                        Console.WriteLine(encryptedMessage);
+                        break;
+                    case 2:
+                        //DecryptPrompt
+                        Console.Write("Message to Decrypt:");
+                        var messageToDecrypt = Console.ReadLine().ToLower();
+                        Console.Write("Please enter the Key:");
+                        var decryptKey = int.Parse(Console.ReadLine());
+                        //end Prompt
+                        var decryptedMessage = Decrypt(messageToDecrypt, decryptKey);
+                        Console.WriteLine(decryptedMessage);
+                        break;
+                    default:
+                        Console.WriteLine("Not sure what you want...");
+                        break;
+                }
+            }
+           
         }
         public static int MenuPrompt()
         {
@@ -52,31 +66,33 @@ namespace Caesar_Cipher
 
         public static string Encrypt(string message, int key)
         {
-            var abcList = new List<int>();
-            var abcCharList = new List<char>();
             var myAbcArray = new[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
-            var encryptedMessage = new char[message.Length];
+            var encryptedMessage = string.Empty;
 
             var errorMessage = "ERROR";
 
-            abcCharList.AddRange(myAbcArray);
+            key = key % myAbcArray.Length;
 
-            if (message.Any(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+            if (message.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
             {
                 var messageWithPercent = message.Replace(' ', '%');
 
                 foreach (var item in messageWithPercent)
                 {
-                    if (!item.Equals('%'))
+                    var newCharacter = item;
+                    if (char.IsLetter(item))
                     {
-                        var newMessage = myAbcArray.ToList().IndexOf(item) + key;
-                        encryptedMessage.Append(myAbcArray[newMessage]);
+                        var indexOfItem = myAbcArray.ToList().IndexOf(item);
+                        var proposedIndex = indexOfItem + key;
+                        if(proposedIndex >= myAbcArray.Count())
+                        {
+                            proposedIndex = key - (myAbcArray.Count() - indexOfItem);
+                        }
+
+                        newCharacter = myAbcArray[proposedIndex];
                     }
-                    else
-                    {
-                        Console.WriteLine(errorMessage);
-                    }
-                     
+
+                    encryptedMessage += newCharacter;
                 }
             }
             else
@@ -84,8 +100,47 @@ namespace Caesar_Cipher
                 Console.WriteLine(errorMessage);
             }
 
-            return encryptedMessage.ToString();
+            return encryptedMessage;
+        }
+
+        public static string Decrypt(string message, int key)
+        {
+            var myAbcArray = new[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+            var decryptedMessage = string.Empty;
+            var errorMessage = "ERROR";
+
+            key = key % myAbcArray.Length;
+
+            var messageWithSpace = message.Replace('%', ' ');
             
+
+            if (messageWithSpace.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+            {
+                
+                foreach (var item in messageWithSpace)
+                {
+                    var newCharacter = item;
+                    if (char.IsLetter(item))
+                    {
+                        var indexofItem = myAbcArray.ToList().IndexOf(item);
+                        var proposedIndex = indexofItem - key;
+                        if (proposedIndex < 0)
+                        {
+                            proposedIndex = proposedIndex * -1;
+                        }
+
+
+                        newCharacter = myAbcArray[proposedIndex];
+                    }
+                    decryptedMessage += newCharacter;
+                }
+            }
+            else
+            {
+                Console.WriteLine(errorMessage);
+            }
+
+            return decryptedMessage;
         }
     }
 }
